@@ -53,25 +53,7 @@ class ThreadHTTPServer(ThreadingMixIn, http.server.HTTPServer):
 
 memory = {}
 
-form = '''<!DOCTYPE html>
-<title>Bookmark Server</title>
-<form method="POST">
-    <label>Long URI:
-        <input name="longuri">
-    </label>
-    <br>
-    <label>Short name:
-        <input name="shortname">
-    </label>
-    <br>
-    <button type="submit">Save it!</button>
-</form>
-<p>URIs I know about:
-<pre>
-{}
-</pre>
-'''
-
+form = open('index.html').read()
 
 def CheckURI(uri, timeout=5):
     '''Check whether this URI is reachable, i.e. does it return a 200 OK?
